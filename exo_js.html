@@ -23,8 +23,15 @@
                     let btn = document.querySelector(".value");
                     btn.addEventListener("click", (event) => {
                         event.preventDefault()
-                        function calculerAge() {
-                            const dateNaissance = document.getElementById("dateAge").valueAsDate;
+                        const dateNaissance = document.getElementById("dateAge").valueAsDate;
+
+                        const user = {
+                            nom : document.querySelector("#nom").value,
+                            prenom : document.querySelector("#prenom").value,
+                            age : calculerAge(dateNaissance)
+                        }
+                        function calculerAge(dateNaissance) {
+
                             const aujourdHui = new Date();
 
                             let age = aujourdHui.getFullYear() - dateNaissance.getFullYear();
@@ -39,10 +46,12 @@
 
                             return age;
                         }
-                    let nom = document.querySelector("#nom").value
+                    /*let nom = document.querySelector("#nom").value
                     let prenom = document.querySelector("#prenom").value
-                    let age = calculerAge()
-                    alert("Bonjour : \n " +nom+ "\n" +prenom+ "\n"+age+" ans.");
+                    let age = calculerAge()*/
+                    // alert("Bonjour : \n " +nom+ "\n" +prenom+ "\n"+age+" ans.");=====> ça c'est de la concatenation
+                    //interpolation
+                    alert(`bonjour ${user.nom} ${user.prenom}, vous avez ${user.age} ans`)
                     } )
                 </script>
             </article>
